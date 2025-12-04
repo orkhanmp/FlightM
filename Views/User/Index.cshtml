@@ -1,0 +1,29 @@
+﻿@model List<User>
+
+<h2>User List</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">@TempData["msg"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fullname</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Fullname</td>
+                <td>
+                    <a class="btn btn-primary" href="/User/Select/@u.Id">Select</a>
+                </td>
+            </tr>
+        }
+    </tbody>    
+</table>

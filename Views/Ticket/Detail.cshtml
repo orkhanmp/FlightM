@@ -1,0 +1,24 @@
+﻿@using FlightManagment.Controllers
+@model FlightTicket
+
+<h2>@Model.Country - @Model.City</h2>
+
+<p>Price: @Model.Price USD</p>
+<p>Hotel: @Model.HotelName</p>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">@TempData["msg"]</div>
+}
+
+@if (UserController.SelectedUserId == 0)
+{
+    <p class="text-danger">First select a user!</p>
+    <a class="btn btn-secondary" href="/User/Index">Select User</a>
+}
+else
+{
+    <a class="btn btn-success" href="/Ticket/Buy?ticketId=@Model.Id&userId=@UserController.SelectedUserId">
+        Buy Ticket
+    </a>
+}

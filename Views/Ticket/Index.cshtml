@@ -1,0 +1,30 @@
+﻿@model List<FlightTicket>
+
+<h2>Flight Ticket List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>City</th>
+            <th>Price</th>
+            <th>Hotel</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>@ticket.Country</td>
+                <td>@ticket.City</td>
+                <td>@ticket.Price</td>
+                <td>@ticket.HotelName</td>
+                <td>
+                    <a class="btn btn-primary" href="/Ticket/Detail/@ticket.Id">Detail</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
